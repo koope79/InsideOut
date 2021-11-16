@@ -1,0 +1,92 @@
+.content{}
+
+.flexBoxNav{
+    margin: 4em 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navButton {
+    max-width: 150px;
+}
+
+.linkButton{
+    border-radius: 3px;
+    padding: 17px 25px;
+    background-color: #61a6d9;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.linkButton:active,
+.linkButton:visited
+{
+    text-decoration: none;
+    color: white;
+}
+.linkButton:hover{
+    background-color: #29323d;
+}
+
+.search__button{
+    text-align: center;
+}
+.search__button button{
+    border-radius: 3px;
+    background-color: #61a6d9;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.search__button button:hover{
+    background-color: #29323d;
+}
+
+.search{
+    padding: 20px;
+}
+
+.searchForm form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.searchForm form > div {
+    width: 35%;
+    margin-right: 50px;
+}
+
+.searchForm form > div:last-child {
+    margin-right: 0;
+    flex: 1 0 auto;
+}
+.searchForm form > div:last-child button {
+    margin-top: 7px;
+    max-width: 400px;
+    border-radius: 3px;
+    padding: 1px 0;
+    font-size: 14px;
+    background-color: #61a6d9;
+    color: white;
+}
+.searchForm form > div:last-child button:hover {
+    background-color: #29323d;
+}
+
+.search__image{}
+.search__image img {
+    width: 800px;
+    height: 275px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
