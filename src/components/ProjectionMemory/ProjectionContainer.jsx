@@ -1,15 +1,29 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from 'react-redux';
-import { arrow, setProjectionMemory, setSrcData } from "../../redux/Projection-reducer";
+import { arrow, resetGallery, setDataMemoryTh } from "../../redux/Memory-reducer";
+import { setProjectionMemory } from "../../redux/Projection-reducer";
 import Projection from "./Projection";
-import s from './Projection.module.css';
 
 
 const mapToStateToProps = (state) =>{
     return {
-        galleryMemoryImage: state.projectionPage.galleryMemoryImage,
+        galleryMemoryImage: state.memory.galleryMemoryImage,
         projectionMemoryImage: state.projectionPage.projectionMemoryImage
     }
 }
 
-export default connect( mapToStateToProps, {arrow, setProjectionMemory, setSrcData} )(Projection);
+class ProjectionContainer extends React.Component {
+    componentWillUnmount(){
+        this.props.resetGallery();
+    }
+    render() {
+        return (
+            <Fragment>
+                <Projection {...this.props} />
+            </Fragment>
+
+        )
+    }
+}
+
+export default connect( mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, setProjectionMemory} )(ProjectionContainer);

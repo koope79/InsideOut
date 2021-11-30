@@ -1,0 +1,59 @@
+.saveForm {
+}
+
+.saveForm__inputImage{
+    position: relative;
+    margin-top: 33px;
+    text-align: center;
+}
+
+.formToolBar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.form_block{
+    padding-right: 20px;
+    flex: 1 1 auto;
+}
+
+.form_block:last-child {
+    padding-right: 0;
+    flex: 1 0 7%;
+}
+
+   
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.input__file_button {
+    /* width: 100%; */
+    /* max-width: 290px; */
+    max-height: 25px;
+    background: #61a6d9;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 16px 0;
+}
+
+.input__file_button span {
+
+}
+

@@ -1,28 +1,38 @@
 import React from "react";
 import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from "react-redux";
 
-const Navbar = (props) => {
+const Navbar = ({ isAuth }) => {
     return (
         <nav className={s.nav}>
             <div className={s.nav__item}>
-                <NavLink to="/projection/" activeClassName={s.active}>Projection</NavLink>
+                <NavLink to="/projection" className={(navData) => navData.isActive ? s.active : ""}>Projection</NavLink>
             </div>
             <div className={s.nav__item}>
-                <NavLink to="/memories/" activeClassName={s.active}>Memories</NavLink>
+                <NavLink to="/memories" className={(navData) => navData.isActive ? s.active : ""}>Memories</NavLink>
+            </div>
+            {isAuth &&
+                <div className={s.nav__item}>
+                    <NavLink to="/transport" className={(navData) => navData.isActive ? s.active : ""}>Tranport</NavLink>
+                </div>
+            }
+            <div className={s.nav__item}>
+                <NavLink to="/dreams" className={(navData) => navData.isActive ? s.active : ""}>Dreams</NavLink>
             </div>
             <div className={s.nav__item}>
-                <NavLink to="/transport/" activeClassName={s.active}>Tranport</NavLink>
+                <NavLink to="/fears" className={(navData) => navData.isActive ? s.active : ""}>Fears</NavLink>
             </div>
-            <div className={s.nav__item}>
-                <NavLink to="/dreams/" activeClassName={s.active}>Dreams</NavLink>
-            </div>
-            <div className={s.nav__item}>
-                <NavLink to="/fears/" activeClassName={s.active}>Fears</NavLink>
-            </div>
+
 
         </nav>
     );
 }
 
-export default Navbar;
+const mapToStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth
+    }
+}
+
+export default connect(mapToStateToProps, {})(Navbar);

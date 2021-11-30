@@ -1,7 +1,8 @@
+const SET_INPUT_MEMORIES = 'SET_INPUT_MEMORIES';
 
 
 let initialState = {
-    infoMemory: []
+
 };
 
 const memoriesReducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ const memoriesReducer = (state = initialState, action) => {
             return state;
     }
 }
+
 
 
 export default memoriesReducer;

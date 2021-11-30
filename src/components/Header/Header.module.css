@@ -10,3 +10,11 @@
     text-align: end;
     color: white;
 }
+.login a{
+    color: white;
+}
+
+.logInUser button{
+    border-radius: 3px;
+    padding: 3px;
+}

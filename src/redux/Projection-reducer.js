@@ -1,8 +1,7 @@
 import { ProjectionAPI } from "../api/api";
+import { setMemoryData } from "./Memories-reducer";
 
 const SET_PROJECTION_MEMORY = 'SET_PROJECTION_MEMORY';
-const SET_ARROW = 'SET_ARROW';
-const SET_DATA_SRC = 'SET_DATA_SRC';
 
 
 let initialState = {
@@ -13,54 +12,19 @@ let initialState = {
 
 const projectionReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_ARROW:
-            let ind = state.dataSrc.findIndex(src => src == state.galleryMemoryImage);
-            if (action.flag) {
-                if (ind >= 0) ind += 1;
-                if (ind == state.dataSrc.length) ind = 0;
-            }
-            else {
-                if (ind == 0) ind = state.dataSrc.length;
-                if (ind > 0) ind -= 1;
-            }
-
-            return {
-                ...state,
-                galleryMemoryImage: state.dataSrc[ind]
-            }
         case SET_PROJECTION_MEMORY:
             return {
                 ...state,
-                projectionMemoryImage: state.galleryMemoryImage,
-                galleryMemoryImage: null
+                projectionMemoryImage: action.galleryImage
             }
-        case SET_DATA_SRC:
-            return {
-                ...state,
-                dataSrc: [...action.data],
-                galleryMemoryImage: action.data[0]
-            }
+
         default:
             return state;
     }
 }
 
-export const arrow = (flag) => ({ type: SET_ARROW, flag });
-export const setProjectionMemory = () => ({ type: SET_PROJECTION_MEMORY });
-const setDataSrc = (data) => ({ type: SET_DATA_SRC, data })
 
-
-export const setSrcData = (formData) => {
-    return async (dispatch) => {
-        try {
-            const response = await ProjectionAPI.getDataSrc(formData);
-            dispatch(setDataSrc(response));
-        }
-        catch {
-            alert('no Memories');
-        }
-    }
-}
+export const setProjectionMemory = (galleryImage) => ({ type: SET_PROJECTION_MEMORY, galleryImage });
 
 
 export default projectionReducer;

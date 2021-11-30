@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import s from './Memories.module.css';
+import s from '../common/GeneralStyles.module.css';
 
 const MemoriesContainer = (props) => {
     return (

@@ -1,36 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import ToolForm from "../../ProjectionMemory/ToolForm";
-import s from '../../ProjectionMemory/Projection.module.css';
 import st from '../Memories.module.css';
-import imageDefault from '../../../assets/images/default-image.png';
-import leftArrow from '../../../assets/images/left-arrow.png';
-import rightArrow from '../../../assets/images/right-arrow.png';
+import sg from '../../common/GeneralStyles.module.css';
+import Gallery from "../../common/Gallery";
 
-const Search = ({setSrcData, galleryMemoryImage, arrow }) => {
+
+const Search = ({setDataMemoryTh, memoryData, galleryMemoryImage, arrow }) => {
+    let [info, infoSet] = useState(false);
+    
     return (
         <div className={st.search}>
-            <div className={st.toolsProjection}>
-                <div className={s.title}>Найти</div>
+            <div className={st.container}>
+                <div className={sg.title}>Найти воспоминание</div>
                 <div className={st.searchForm}>
-                    <ToolForm setSrcData={setSrcData} />
-                </div>
-                
-
-                <div className={s.toolsProjection__gallery}>
-                    <div className={s.toolsProjection__arrow} onClick={() => { arrow(0) }}>
-                        <img src={leftArrow} alt={'arr'} />
-                    </div>
-                    <div className={st.search__image}>
-                        <img src={galleryMemoryImage == null ? imageDefault : galleryMemoryImage} alt={'memory'} />
-                    </div>
-                    <div className={s.toolsProjection__arrow} onClick={() => { arrow(1) }}>
-                        <img src={rightArrow} alt={'arr'} />
-                    </div>
-                </div>
-                <div className={st.search__button}>
-                    <button onClick={() => { alert('info') }}>Информация</button>
+                    <ToolForm setDataMemoryTh={setDataMemoryTh} sizeButton={"middle"}/>
                 </div>
 
+                <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage}/>
+  
+                <div className={sg.general__button}>
+                    <button onClick={() => { infoSet(true); }} disabled={memoryData == null ? "disabled" : ""}>Информация</button>
+                </div>
+                {info && <InfoBlock infoSet={infoSet} desc={memoryData.description} memoryLocation={memoryData.memoryLocation} rating={memoryData.rating} />}
+            </div>
+        </div>
+    );
+}
+
+const InfoBlock = (props) => {
+    return(
+        <div className={st.infoBlock}>
+            <div className={st.infoBlock__closeButton}>
+                <button onClick={()=>{props.infoSet(false);}}>X</button>
+            </div>
+            <div className={st.infoBlock__bodyText}>
+                <p><b>Описание:</b> {props.desc}</p>
+                <p><b>Расположение:</b> {props.memoryLocation}</p>
+                <p><b>Критерий важности:</b> {props.rating}</p>
             </div>
         </div>
     );

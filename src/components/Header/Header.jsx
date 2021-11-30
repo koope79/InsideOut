@@ -1,14 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
+import { NavLink } from 'react-router-dom';
+import { logOut } from "../../redux/Auth-reducer";
 import s from './Header.module.css';
 
-const Header = (props) => {
+const Header = ({isAuth, login, logOut}) => {
     return (
         <header className={s.header}>
             <div className={s.login}>
-                <a>Login</a>
+                {isAuth
+                    ? <div className={s.logInUser}>{login} - <button onClick={logOut}>LogOut</button></div>
+                    : <NavLink to={'/login'}>Login</NavLink>
+                }
             </div>
         </header>
     );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.auth.isAuth,
+        login: state.auth.login
+    }
+}
+
+export default connect(mapStateToProps, {logOut})(Header);

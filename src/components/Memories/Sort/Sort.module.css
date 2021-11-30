@@ -1,0 +1,17 @@
+.sortForm__toolBar{
+    border: 2px solid black;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.sortForm__toolGroup {
+    text-align: center;
+    padding: 5px;
+}
+
+.sortForm__toolGroup span{
+    padding: 0 5px;
+}
+.sortForm__toolGroup input{
+    max-width: 57px;
+}

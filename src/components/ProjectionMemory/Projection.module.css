@@ -5,25 +5,11 @@
 .projection{
     display: flex;
 }
-.title {
-    font-size: 25px;
-    color: #445161;
-}
-.subTitle{
-    color: #445161;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 9px 0;
-}
 
 /*--------------------------------------------------------------------------*/
 
 .currentProjection{
     padding: 20px;
-}
-
-.currentProjectionTitle{
-    /* padding: 20px 0 0 20px; */
 }
 
 .currentProjection__image{
@@ -34,7 +20,7 @@
     max-width: 500px;
 }
 
-/*--------------------------------------------------------------------------*/
+/*------------------------------- FORM ------------------------------------------*/
 
 .form_block{}
 
@@ -50,57 +36,6 @@
     border: 2px solid black;
     border-radius: 3px;
     width: 100%;
-}
-
-.errorField {
-    padding-top: 3px;
-    color: red;
-}
-
-.toolsProjection__button {
-    margin-top: 9px;
-}
-.toolsProjection__button button {
-    width: 100%;
-}
-
-.toolsProjection__gallery{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 0;
-}
-
-.toolsProjection__arrow{
-    cursor: pointer;
-}
-
-.toolsProjection__arrow img{
-    width: 30px;
-    height: 25px;
-}
-
-.toolsProjection__image{}
-
-.toolsProjection__image img{
-    width: 270px;
-    height: 170px;
-    object-fit: cover;
-}
-
-.toolsProjection__button{
-    text-align: center;
-    
-}
-.toolsProjection__button button{
-    border-radius: 3px;
-    padding: 1px 0;
-    font-size: 14px;
-    background-color: #61a6d9;
-    color: white;
-}
-.toolsProjection__button button:hover{
-    background-color: #29323d;
 }
 
 

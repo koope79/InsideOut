@@ -1,0 +1,121 @@
+/*--------------- General titles-subtitles ---------------*/
+
+.title {
+    font-size: 25px;
+    color: #445161;
+}
+.subTitle{
+    color: #445161;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/*--------------- General Button ---------------*/
+    /*--------------- Big-button ---------------*/
+.general__button{
+    text-align: center;
+}
+.general__button button{
+    border-radius: 3px;
+    background-color: #61a6d9;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.general__button button:hover{
+    background-color: #29323d;
+}
+.general__button button:disabled{
+    background-color: #e9eef1;
+}
+    /*--------------- Line-button ---------------*/
+.form__button {
+    margin-top: 9px;
+    text-align: center;
+}
+.form__button button {
+    width: 100%;
+    border-radius: 3px;
+    padding: 1px 0;
+    font-size: 14px;
+    background-color: #61a6d9;
+    color: white;
+}
+
+.form__button button:hover{
+    background-color: #29323d;
+}
+
+.form__button button:disabled{
+    background-color: #e9eef1;
+}
+
+    /*--------------- Middle-button ---------------*/
+.middleFormButton {
+    margin-right: 0;
+    margin-top: 34px;
+    flex: 0 1 auto;
+}
+.middleFormButton button {
+    max-width: 400px;
+    border-radius: 3px;
+    padding: 6px;
+    font-size: 14px;
+    background-color: #61a6d9;
+    color: white;
+}
+.middleFormButton button:hover {
+    background-color: #29323d;
+}
+
+/*--------------- Menu Settings ---------------*/
+
+.flexBoxNav{
+    margin: 4em 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navButton {
+    max-width: 150px;
+}
+
+.linkButton{
+    border-radius: 3px;
+    padding: 17px 25px;
+    background-color: #61a6d9;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.linkButton:active,
+.linkButton:visited
+{
+    text-decoration: none;
+    color: white;
+}
+.linkButton:hover{
+    background-color: #29323d;
+}
+
+/*--------------- Form Settings ---------------*/
+
+.formBlockItem{
+    padding-right: 15px;
+    flex: 1 1 auto;
+}
+
+.form__toolBar input {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.errorField {
+    padding-top: 3px;
+    color: red;
+}
