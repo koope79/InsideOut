@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from 'formik';
 import sg from '../../common/GeneralStyles.module.css';
 import s from './Save.module.css';
-import { dateField, ratingField, requiredField, typeField } from "../../../validators/validators.js";
+import { dateField, ratingField, typeField } from "../../../validators/validators.js";
 import Gallery from "../../common/Gallery";
 import classnames from 'classnames';
 
