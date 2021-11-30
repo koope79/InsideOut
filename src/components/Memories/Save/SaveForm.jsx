@@ -12,10 +12,10 @@ const SaveForm = ({ arrow, galleryMemoryImage, setDataGallery, saveMemoryTh }) =
 
     const submit = (values, { setSubmitting, resetForm }) => {
         saveMemoryTh(values, arr);
-        arr.length = 0;
         setSubmitting(false);
         resetForm();
         setValidSrc(false);
+        setArr([]);
     }
 
     const MemoriesSelected = (e) => {

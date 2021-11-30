@@ -31,7 +31,6 @@ export const ProjectionAPI = {
         }
     },
     saveMemory(saveFormData) {
-        //console.log(saveFormData);
         LongData.push({
             id: 5,
             date: saveFormData.date,
