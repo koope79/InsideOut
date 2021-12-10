@@ -8,13 +8,13 @@ import classnames from 'classnames';
 const Gallery = ({ galleryMemoryImage, arrow, size }) => {
     return (
         <div className={s.gallery}>
-            <div className={s.gallery__arrow} onClick={() => { arrow(0) }}>
+            <div className={s.gallery__arrow} onClick={galleryMemoryImage ? () => { arrow(0) } : null}>
                 <img src={leftArrow} alt={'arr'} />
             </div>
-            <div className={ classnames( {[s.gallery__image__small]: size == "small"}, s.gallery__image ) }>
+            <div className={ classnames( {[s.gallery__image__small]: size == "small"}, {[s.gallery__image__middle]: size == "middle"}, s.gallery__image ) }>
                 <img src={galleryMemoryImage == null ? imageDefault : galleryMemoryImage} alt={'memory'} />
             </div>
-            <div className={s.gallery__arrow} onClick={() => { arrow(1) }}>
+            <div className={s.gallery__arrow} onClick={galleryMemoryImage ? () => { arrow(1) } : null}>
                 <img src={rightArrow} alt={'arr'} />
             </div>
         </div>

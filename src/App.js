@@ -13,6 +13,7 @@ import SaveContainer from './components/Memories/Save/SaveContainer';
 import Login from './components/Login/Login';
 import RequireAuth from './components/hoc/withRequireAuth';
 import SortContainer from './components/Memories/Sort/SortContainer';
+import IslandsContainer from './components/Islands/IslandsContainer';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 
           <div className="container">
             <Routes>
-              <Route path="/" element={<Navigate replace to="/projection" />} />    {/* ===  <Redirect exact from='/' to='/projection'/> */}
+              <Route path="/" element={<Navigate replace to="/login" />} />    {/* ===  <Redirect exact from='/' to='/projection'/> */}
               <Route path='/projection' element={<ProjectionContainer />} />
               <Route path='/memories/search' element={<RequireAuth><SearchContainer /></RequireAuth>} />
               <Route path='/memories/sort' element={<SortContainer />} />
@@ -33,6 +34,7 @@ function App() {
               <Route path='/transport' element={<RequireAuth><TransportContainer /></RequireAuth>} />
               <Route path='/dreams' element={<DreamsContainer />} />
               <Route path='/fears' element={<FearsContainer />} />
+              <Route path='/islands' element={<RequireAuth><IslandsContainer /></RequireAuth>} />
               <Route path='/login' element={<Login/>} />
             </Routes>
           </div>

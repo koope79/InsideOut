@@ -1,6 +1,7 @@
 /*--------------- Memory Container ---------------*/
 .content{}
 .container{
+    position: relative;
     padding: 20px;
 }
 
@@ -31,8 +32,8 @@
 }
 
 .infoBlock {
-    width: 350px;
-    height: 250px;
+    width: 400px;
+    height: 275px;
     position: absolute;
     top:50%;
     left: 50%;
@@ -48,15 +49,27 @@
 }
 .infoBlock__closeButton button{
     background-color: inherit;
-    font-size: 16px;
+    font-size: 18px;
     padding: 3px;
 }
 
 .infoBlock__bodyText{
     overflow: auto;
 }
-.infoBlock__bodyText p {
-    margin-bottom: 8px;
+.infoBlock__bodyItem {
+    margin-bottom: 10px;
+    border-bottom: 2px gray solid;
+}
+.infoBlock__bodyItem:last-child {
+    margin-bottom: 0px;
+}
+.infoBlock__bodyTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.infoBlock__bodyDesc{
+    padding-bottom: 5px;
     font-size: 15px;
 }
 

@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
-import { arrow, resetGallery, setDataMemoryTh } from "../../../redux/Memory-reducer";
+import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh } from "../../../redux/Memory-reducer";
 import Search from "./Search";
 
 const mapToStateToProps = (state) => {
     return {
         galleryMemoryImage: state.memory.galleryMemoryImage,
-        memoryData: state.memory.memoryData,
+        memoriesData: state.memory.memoriesData,
+        currentMemory: state.memory.currentMemory
     }
 }
 
@@ -24,4 +25,4 @@ class SearchContainer extends React.Component {
 }
 
 
-export default connect(mapToStateToProps, { arrow, setDataMemoryTh, resetGallery })(SearchContainer);
+export default connect(mapToStateToProps, { arrow, setDataMemoryTh, resetGallery, selectMemoryData, setDataGallery })(SearchContainer);

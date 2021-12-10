@@ -6,14 +6,14 @@ export const requiredField = (value) => {
 export const dateField = (value) => {
     const req = requiredField(value);
     if (req) return req;
-    else if(value && !/[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$/i.test(value)) return 'Invalid date';
+    else if(value && !/[0-3]?[0-9]\/[0-3]?[0-9]\/(?:[0-9]{2})?[0-9]{2}$/i.test(value)) return 'Invalid format date';
     return undefined;
 }
 
 export const typeField = (value) => {
     const req = requiredField(value);
     if (req) return req;
-    else if(value && !/[А-Яа-я]+/i.test(value)) return 'Invalid type';
+    else if(value && !/^[а-яА-Я\s]+$/iu.test(value)) return 'Only russian symbols';
     return undefined;
 }
 

@@ -3,40 +3,53 @@ import ToolForm from "../../ProjectionMemory/ToolForm";
 import st from '../Memories.module.css';
 import sg from '../../common/GeneralStyles.module.css';
 import Gallery from "../../common/Gallery";
+import Memory from "./Memory";
+import classnames from 'classnames';
+import ResultSearch from "../../common/ResultSearch";
 
 
-const Search = ({setDataMemoryTh, memoryData, galleryMemoryImage, arrow }) => {
+const Search = ({ setDataMemoryTh, memoriesData, galleryMemoryImage, arrow, currentMemory, selectMemoryData, setDataGallery }) => {
     let [info, infoSet] = useState(false);
-    
+
     return (
         <div className={st.search}>
             <div className={st.container}>
                 <div className={sg.title}>Найти воспоминание</div>
                 <div className={st.searchForm}>
-                    <ToolForm setDataMemoryTh={setDataMemoryTh} sizeButton={"middle"}/>
+                    <ToolForm setDataMemoryTh={setDataMemoryTh} sizeButton={"middle"} />
                 </div>
 
-                <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage}/>
-  
+                <ResultSearch memoriesData={memoriesData} selectMemoryData={selectMemoryData} setDataGallery={setDataGallery} />
+                <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage} />
+
                 <div className={sg.general__button}>
-                    <button onClick={() => { infoSet(true); }} disabled={memoryData == null ? "disabled" : ""}>Информация</button>
+                    <button onClick={() => { infoSet(true); }} disabled={currentMemory.length == 0 ? "disabled" : ""}>Информация</button>
                 </div>
-                {info && <InfoBlock infoSet={infoSet} desc={memoryData.description} memoryLocation={memoryData.memoryLocation} rating={memoryData.rating} />}
+                {info && <InfoBlock infoSet={infoSet} desc={currentMemory.description} memoryLocation={currentMemory.memoryLocation} rating={currentMemory.rating} />}
             </div>
         </div>
     );
 }
 
 const InfoBlock = (props) => {
-    return(
+    return (
         <div className={st.infoBlock}>
             <div className={st.infoBlock__closeButton}>
-                <button onClick={()=>{props.infoSet(false);}}>X</button>
+                <button onClick={() => { props.infoSet(false); }}>X</button>
             </div>
             <div className={st.infoBlock__bodyText}>
-                <p><b>Описание:</b> {props.desc}</p>
-                <p><b>Расположение:</b> {props.memoryLocation}</p>
-                <p><b>Критерий важности:</b> {props.rating}</p>
+                <div className={st.infoBlock__bodyItem}>
+                    <div className={st.infoBlock__bodyTitle}>Описание:</div>
+                    <div className={st.infoBlock__bodyDesc}>{props.desc}</div>
+                </div>
+                <div className={st.infoBlock__bodyItem}>
+                    <div className={st.infoBlock__bodyTitle}>Расположение:</div>
+                    <div className={st.infoBlock__bodyDesc}>{props.memoryLocation}</div>
+                </div>
+                <div className={st.infoBlock__bodyItem}>
+                    <div className={st.infoBlock__bodyTitle}>Критерий важности:</div>
+                    <div className={st.infoBlock__bodyDesc}>{props.rating}</div>
+                </div>
             </div>
         </div>
     );

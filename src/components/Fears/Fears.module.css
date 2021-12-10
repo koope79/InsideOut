@@ -1,0 +1,50 @@
+.fears{
+}
+.fearsFlexBox{
+    display: flex;
+}
+.fears__search{
+    padding: 20px;
+}
+/* .fears__buttons{
+    display: flex;
+    justify-content: space-between;
+} */
+.fears__toolBar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    border-left: 3px #dddbdb solid;
+    flex-direction: column;
+}
+.fears__errorMessage{
+    margin-top: 5px;
+    color:red;
+    flex-grow: 1;
+}
+.saveFearForm form > div{
+    margin-top: 10px;
+}
+
+.fears__countBar{}
+.countBar__item{
+    font-size: 12px;
+    color: #445161;
+    font-weight: bold;
+    display: flex;
+}
+.countBar__item div{
+    margin-bottom: 7px;
+}
+.countBar__item div:first-child {
+    flex-grow: 1;
+}
+.refreashButtonBar{
+    text-align: center;
+}
+.refreashButtonBar button {
+    width: 15px;
+    height: 15px;
+    background: url('../../assets/images/redo-alt-solid.svg') no-repeat;
+}

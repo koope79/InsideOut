@@ -6,13 +6,14 @@ import { dateField, typeField } from "../../validators/validators";
 import classnames from 'classnames';
 
 const ToolForm = ({setDataMemoryTh, sizeButton}) => {
-    const submit = (values, { setSubmitting }) => {
+    const submit = (values, { setSubmitting, resetForm }) => {
         setDataMemoryTh(values);
         setSubmitting(false);
+        resetForm();
     }
 
     return (
-        <Formik initialValues={{ dateMemory: '', typeMemory: '' }} onSubmit={submit}>
+        <Formik initialValues={{ dateMemory: '', typeMemory: '' }} validateOnMount={true} onSubmit={submit}>
             {({ errors, touched, isValid, isSubmitting }) => (
                 <Form>
                     <div className={s.form_block}>
@@ -32,7 +33,6 @@ const ToolForm = ({setDataMemoryTh, sizeButton}) => {
                     <div className={classnames( {[sg.middleFormButton]: sizeButton == "middle"}, {[sg.form__button]: !sizeButton}  )} >
                         <button type="submit" disabled={isValid ? isSubmitting : "disabled"}>Поиск</button>
                     </div>
-
                 </Form>
             )}
         </Formik>

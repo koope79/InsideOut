@@ -4,10 +4,12 @@ const SET_ARROW = 'SET_ARROW';
 const SET_DATA_MEMORY = 'SET_DATA_MEMORY';
 const RESET_GALLERY = 'RESET_GALLERY_IMAGE';
 const SET_DATA_GALLERY = 'SET_DATA_GALLERY';
+const SELECT_MEMORY_DATA = 'SELECT_MEMORY_DATA';
 
 
 let initialState = {
-    memoryData: [],
+    memoriesData: [],
+    currentMemory: [],
     dataSrc: [],
     galleryMemoryImage: null
 };
@@ -32,7 +34,7 @@ const memoryReducer = (state = initialState, action) => {
         case SET_DATA_MEMORY:
             return {
                 ...state,
-                memoryData: {...action.data}
+                memoriesData: [...action.data]
             }
         case SET_DATA_GALLERY:
             return{
@@ -45,7 +47,13 @@ const memoryReducer = (state = initialState, action) => {
                 ...state,
                 galleryMemoryImage: null,
                 dataSrc: null,
-                memoryData: null
+                memoriesData: [],
+                currentMemory: []
+            }
+        case SELECT_MEMORY_DATA:
+            return{
+                ...state,
+                currentMemory: action.dataMemory
             }
         default:
             return state;
@@ -55,15 +63,15 @@ const memoryReducer = (state = initialState, action) => {
 export const arrow = (flag) => ({ type: SET_ARROW, flag });
 const setDataMemory = (data) => ({ type: SET_DATA_MEMORY, data });
 export const setDataGallery = (dataSrc) => ({ type: SET_DATA_GALLERY, dataSrc });
-export const resetGallery = () => ({type: RESET_GALLERY});    
-
+export const resetGallery = () => ({type: RESET_GALLERY});
+export const selectMemoryData = (dataMemory) => ({type: SELECT_MEMORY_DATA, dataMemory});
 
 export const setDataMemoryTh = (toolFormData) => {
     return async (dispatch) => {
         try {
             const data = await ProjectionAPI.getMemoryData(toolFormData);
             dispatch(setDataMemory(data));
-            dispatch(setDataGallery(data.src));
+            //dispatch(setDataGallery(data[0].src));
         }
         catch {
             alert('no Memories');
@@ -82,6 +90,20 @@ export const saveMemoryTh = (saveFormData, urlArr) => {
         catch {
             alert('error');
         }
+    }
+}
+
+export const selectionMemoriesSort = (sortFormData) => {
+    return (dispatch) => {
+        const data = ProjectionAPI.getSortMemoriesData(sortFormData);   // return массив с объектами воспоминаний 
+        //dispatch(setDataMemory(data));    // сет данных для отображения в таблице сортировки
+    }
+}
+
+export const transportMemory = (memory) => {
+    return (dispatch) => {
+        const data = ProjectionAPI.transportMemoryData(memory);   // return массив с объектами воспоминаний 
+        //dispatch(setDataMemory(data));    // сет данных для отображения в таблице сортировки
     }
 }
 

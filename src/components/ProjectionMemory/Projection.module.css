@@ -22,7 +22,9 @@
 
 /*------------------------------- FORM ------------------------------------------*/
 
-.form_block{}
+.form_block{
+    margin: 0;
+}
 
 .toolsProjection{
     border-left: 3px #dddbdb solid;

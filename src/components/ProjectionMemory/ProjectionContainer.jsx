@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
-import { arrow, resetGallery, setDataMemoryTh } from "../../redux/Memory-reducer";
+import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh } from "../../redux/Memory-reducer";
 import { setProjectionMemory } from "../../redux/Projection-reducer";
 import Projection from "./Projection";
 
@@ -8,7 +8,8 @@ import Projection from "./Projection";
 const mapToStateToProps = (state) =>{
     return {
         galleryMemoryImage: state.memory.galleryMemoryImage,
-        projectionMemoryImage: state.projectionPage.projectionMemoryImage
+        projectionMemoryImage: state.projectionPage.projectionMemoryImage,
+        memoriesData: state.memory.memoriesData
     }
 }
 
@@ -26,4 +27,4 @@ class ProjectionContainer extends React.Component {
     }
 }
 
-export default connect( mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, setProjectionMemory} )(ProjectionContainer);
+export default connect( mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, setProjectionMemory, selectMemoryData, setDataGallery} )(ProjectionContainer);

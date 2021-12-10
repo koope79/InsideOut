@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from 'react-redux';
-import { arrow, resetGallery, saveMemoryTh, setDataGallery, setDataMemoryTh } from "../../../redux/Memory-reducer";
+import { arrow, resetGallery, saveMemoryTh, setDataGallery } from "../../../redux/Memory-reducer";
 import Save from "./Save";
 
 
@@ -23,4 +23,4 @@ class SaveContainer extends React.Component {
     }
 }
 
-export default connect(mapToStateToProps, { arrow, setDataMemoryTh, resetGallery, setDataGallery, saveMemoryTh })(SaveContainer);
+export default connect(mapToStateToProps, { arrow, resetGallery, setDataGallery, saveMemoryTh })(SaveContainer);

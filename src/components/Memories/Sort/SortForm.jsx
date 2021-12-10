@@ -4,10 +4,11 @@ import sg from '../../common/GeneralStyles.module.css';
 import s from './Sort.module.css';
 import { dateField, ratingField, requiredField, typeField } from "../../../validators/validators.js";
 
-const SortForm = ({ }) => {
+const SortForm = ({ selectionMemoriesSort }) => {
 
     const submit = (values, { setSubmitting, resetForm }) => {
-        console.log(values);
+        //console.log(values);
+        selectionMemoriesSort(values);
         setSubmitting(false);
         resetForm();
     }

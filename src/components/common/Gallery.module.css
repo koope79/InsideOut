@@ -26,3 +26,8 @@
     width: 270px;
     height: 170px;
 }
+
+.gallery__image__middle img {
+    width: 550px;
+    height: 200px;
+}

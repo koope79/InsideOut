@@ -5,19 +5,19 @@ import sg from '../common/GeneralStyles.module.css';
 import { maxLength, requiredField } from "../../validators/validators";
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { logIn } from "../../redux/Auth-reducer";
-import { useLocation, useNavigate } from "react-router-dom";
+import { setUserData } from "../../redux/Auth-reducer";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const maxLength8 = maxLength(8);
 
-const LoginForm = ({logIn}) => {
+const LoginForm = ({setUserData}) => {
     const submit = (values, { setSubmitting }) => {
-        logIn(values.login, values.pass, true);
+        setUserData(values.login, values.pass, true);
         setSubmitting(false);
     }
 
     return (
-        <Formik initialValues={{ login: '', pass: '' }} onSubmit={submit}>
+        <Formik initialValues={{ login: '', pass: '' }} validateOnMount={true} onSubmit={submit}>
             {({ errors, touched, isValid, isSubmitting }) => (
                 <Form>
                     <div className={s.form_block}>
@@ -46,16 +46,18 @@ const LoginForm = ({logIn}) => {
 
 const Login = (props) => {
     const navigate = useNavigate();
-    const location = useLocation();
+    let {state} = useLocation();
+    if(state == null) state="/projection";
     
     if (props.isAuth) {
-        navigate(location.state.path || "/projection");    
+        // navigate(state.path || "/projection");
+        return <Navigate to={state.path || state} />    
     }
     return (
         <div className={s.login}>
             <div className={sg.title}>Аутентификация</div>
             <div className={s.loginForm}>
-                <LoginForm logIn={props.logIn}/>
+                <LoginForm setUserData={props.setUserData}/>
             </div>
         </div>
     );
@@ -68,4 +70,4 @@ const mapToStateToProps = (state) => {
 }
 
 
-export default connect(mapToStateToProps, { logIn })(Login);;
+export default connect(mapToStateToProps, { setUserData })(Login);;

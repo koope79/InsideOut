@@ -1,0 +1,39 @@
+.dreams{}
+.dreams__flexBox{
+    display: flex;
+}
+.dreams__search{
+    padding: 20px;
+}
+.dreams__tools{
+    display: flex;
+    flex-direction: column;
+    border-left: 3px #dddbdb solid;
+    padding: 20px;
+}
+.dreams__selectedMemory{
+    
+}
+.dreams__scenario{
+    flex-grow: 1;
+}
+
+.dreams__projection{
+}
+
+.selectedDreamsForm{
+
+}
+
+.selectedDreamsForm__item{
+    margin: 7px 0;
+    padding-left: 5px;
+}
+.selectedDreamsForm__item span {
+    padding-left: 7px;
+}
+
+.selectedDreamsForm__item :last-child{
+    margin: 0;
+}
+

@@ -17,10 +17,11 @@
     text-align: center;
 }
 .general__button button{
+    max-width: 145px;
     border-radius: 3px;
     background-color: #61a6d9;
     color: white;
-    padding: 15px 20px;
+    padding: 15px;
     font-size: 16px;
     letter-spacing: 1px;
 }
@@ -68,6 +69,9 @@
 }
 .middleFormButton button:hover {
     background-color: #29323d;
+}
+.middleFormButton button:disabled{
+    background-color: #e9eef1;
 }
 
 /*--------------- Menu Settings ---------------*/
@@ -118,4 +122,53 @@
 .errorField {
     padding-top: 3px;
     color: red;
+}
+
+/*--------------- Result Search ---------------*/
+
+.resultSearch{
+    margin: 10px 0;
+}
+.resultBlock{
+    max-height: 150px;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.resultSearch__block{
+    display: flex;
+    justify-content: space-around;
+}
+
+.resultSearch__title{
+    padding: 5px;
+    font-weight: bold;
+    color: #445161;
+    font-size: 15px;
+    border: 1px gray solid;
+    flex: 1 1 33.333%;
+    text-align: center;
+}
+
+.resultSearch__centerField{
+    flex-basis: 80%;
+}
+
+.memory{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+}
+.memory:hover {
+    background-color: #61a6d9;
+}
+.memory__field{
+    font-size: 14px;
+    padding: 10px;
+    border: 1px gray solid;
+    flex: 1 1 33.333%;
+}
+
+.memory__centerField{
+    flex-basis: 81%;
 }

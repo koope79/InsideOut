@@ -1,12 +1,28 @@
-import React from "react";
-import s from './Transport.module.css';
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
+import Transport from "./Transport";
+import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh, transportMemory } from "../../redux/Memory-reducer";
+//import s from './Transport.module.css';
 
-const TransportContainer = (props) => {
-    return (
-        <div>
-            <h3>TransportContainer</h3>
-        </div>
-    );
+const mapToStateToProps = (state) => {
+    return {
+        galleryMemoryImage: state.memory.galleryMemoryImage,
+        memoriesData: state.memory.memoriesData,
+        currentMemory: state.memory.currentMemory
+    }
 }
 
-export default TransportContainer;
+class TransportContainer extends React.Component {
+    componentWillUnmount(){
+        this.props.resetGallery();
+    }
+    render() {
+        return (
+            <Fragment>
+                <Transport {...this.props} />
+            </Fragment>
+        );
+    }
+}
+
+export default connect(mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, selectMemoryData, setDataGallery, transportMemory})(TransportContainer);
