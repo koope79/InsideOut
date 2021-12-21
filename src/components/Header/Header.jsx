@@ -9,7 +9,7 @@ const Header = ({isAuth, login, logOut, emotion}) => {
         <header className={s.header}>
             <div className={s.login}>
                 {emotion &&         // HOC ?? 
-                <div className={s.animation_emotion}>
+                <div title="радость" className={s.animation_emotion}>
                     <div className={s.emotion__eyes}>
                         <div className={s.eye}></div>
                         <div className={s.eye}></div>

@@ -6,7 +6,7 @@ import Sort from "./Sort";
 
 const mapToStateToProps = (state) => {
     return {
-        
+        errorMessage: state.memory.errorMessage
     }
 }
 

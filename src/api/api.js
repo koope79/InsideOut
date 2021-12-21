@@ -8,15 +8,15 @@ const LongData = [
     },
     {
         id: 2, date: '23/05/14', type: 'сопка', src: ['https://sun9-21.userapi.com/impf/cYNA2bhg4WHE023w1WVpXiqs_bjYVFsQGQ_HDQ/cRNZPfMrMvo.jpg?size=2048x2048&quality=96&sign=95e317d86bbf8aacc0690e6f33e70fbf&type=album'],
-        description: "", memoryLocation: "", rating: 1
+        description: "", memoryLocation: "долговременная память", rating: 1
     },
     {
         id: 3, date: '15/09/15', type: 'школа', src: ['https://sun9-82.userapi.com/impf/c624428/v624428043/512d7/GOsZRak39EE.jpg?size=960x960&quality=96&sign=803d9f68c183125489d004185d44a057&type=album'],
-        description: "", memoryLocation: "", rating: 1
+        description: "", memoryLocation: "долговременная память", rating: 1
     },
     {
         id: 4, date: '09/03/16', type: 'море', src: ['https://sun9-13.userapi.com/impf/c629121/v629121267/3ddb6/h4xT1cyC2as.jpg?size=1280x852&quality=96&sign=ed33fca4d1db34fc0af426203075d50b&type=album'],
-        description: "", memoryLocation: "", rating: 1
+        description: "", memoryLocation: "долговременная память", rating: 1
     },
     {
         id: 5, date: '04/09/20', type: 'город', src: ['https://sun9-82.userapi.com/impf/c624428/v624428043/512d7/GOsZRak39EE.jpg?size=960x960&quality=96&sign=803d9f68c183125489d004185d44a057&type=album'],
@@ -64,12 +64,15 @@ export const ProjectionAPI = {
             memoryLocation: "долговременная память",
             rating: saveFormData.rating
         });
+        return {resultCode: 0};
     },
     getSortMemoriesData(sortFormData) {
         console.log(sortFormData);
     },
     transportMemoryData(memory){
+        console.log(memory);
         alert('transport');
+        return {resultCode: 0};
     }
 }
 
@@ -120,5 +123,14 @@ export const IslandsApi = {
     },
     pickTypeMemory(type){
         console.log("post TypeMemory", type);
+    }
+}
+
+export const ReactionApi = {
+    getReactionData(){
+        console.log("get reactionData");
+    },
+    actionReaction(){
+        console.log("post reaction");
     }
 }

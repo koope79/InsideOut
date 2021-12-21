@@ -6,11 +6,15 @@ import SortForm from "./SortForm";
 import classnames from 'classnames';
 
 
-const Sort = ({ selectionMemoriesSort }) => {
+const Sort = ({ selectionMemoriesSort, errorMessage }) => {
     return (
         <div className={st.container}>
             <div className={sg.title}>Сортировка воспоминаний</div>
             <div className={st.sortForm}><SortForm selectionMemoriesSort={selectionMemoriesSort} /></div>
+            
+            {errorMessage &&
+                <div className={sg.errorField}>Нет воспоминаний</div>}
+
             <div className={sg.resultSearch}>
                 <div className={sg.resultSearch__block}>
                     <div className={sg.resultSearch__title}>Дата</div>

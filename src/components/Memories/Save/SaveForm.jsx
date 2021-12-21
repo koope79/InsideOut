@@ -6,7 +6,7 @@ import { dateField, ratingField, typeField } from "../../../validators/validator
 import Gallery from "../../common/Gallery";
 import classnames from 'classnames';
 
-const SaveForm = ({ arrow, galleryMemoryImage, setDataGallery, saveMemoryTh }) => {
+const SaveForm = ({ arrow, galleryMemoryImage, setDataGallery, saveMemoryTh, errorMessage }) => {
     let [isValidSrc, setValidSrc] = useState(false);
     let [arr, setArr] = useState([]);
 
@@ -69,6 +69,9 @@ const SaveForm = ({ arrow, galleryMemoryImage, setDataGallery, saveMemoryTh }) =
                             </label>
                         </div>
                     </div>
+
+                    {errorMessage &&
+                    <div className={sg.errorField}>Ошибка</div>}
 
                     <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage} />
 

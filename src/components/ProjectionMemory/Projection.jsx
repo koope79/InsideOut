@@ -22,7 +22,7 @@ const Projection = ( { memoriesData, selectMemoryData, setDataGallery, projectio
                 </div>
             </div>
 
-            <div className={s.toolsProjection}>
+            <div className={sg.toolBar}>
 
                 <div className={sg.title}>Выбрать для проецирования</div>
                 <ToolForm setDataMemoryTh={setDataMemoryTh}/>

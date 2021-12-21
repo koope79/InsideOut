@@ -23,6 +23,9 @@ const Navbar = ({ isAuth }) => {
             <div className={s.nav__item}>
                 <NavLink to="/fears" className={(navData) => navData.isActive ? s.active : ""}>Fears</NavLink>
             </div>
+            <div className={s.nav__item}>
+                <NavLink to="/reaction" className={(navData) => navData.isActive ? s.active : ""}>Reaction</NavLink>
+            </div>
             {isAuth &&
                 <div className={s.nav__item}>
                     <NavLink to="/islands" className={(navData) => navData.isActive ? s.active : ""}>Islands</NavLink>

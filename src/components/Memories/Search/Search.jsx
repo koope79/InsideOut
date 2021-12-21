@@ -8,7 +8,7 @@ import classnames from 'classnames';
 import ResultSearch from "../../common/ResultSearch";
 
 
-const Search = ({ setDataMemoryTh, memoriesData, galleryMemoryImage, arrow, currentMemory, selectMemoryData, setDataGallery }) => {
+const Search = ({ setDataMemoryTh, memoriesData, galleryMemoryImage, arrow, currentMemory, selectMemoryData, setDataGallery, errorMessage }) => {
     let [info, infoSet] = useState(false);
 
     return (
@@ -18,6 +18,9 @@ const Search = ({ setDataMemoryTh, memoriesData, galleryMemoryImage, arrow, curr
                 <div className={st.searchForm}>
                     <ToolForm setDataMemoryTh={setDataMemoryTh} sizeButton={"middle"} />
                 </div>
+                
+                {errorMessage &&
+                <div className={sg.errorField}>Нет воспоминаний</div>}
 
                 <ResultSearch memoriesData={memoriesData} selectMemoryData={selectMemoryData} setDataGallery={setDataGallery} />
                 <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage} />

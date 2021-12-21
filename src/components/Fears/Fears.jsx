@@ -25,7 +25,7 @@ const Fears = ({ errorMessage, fearsData, saveFear, galleryMemoryImage, currentF
                         <button onClick={() => { alert('walk'); resetGallery(); resetFearData(); }} disabled={currentFear.length == 0 ? "disabled" : ""}>Выпустить</button>
                     </div>
                 </div>
-                <div className={s.fears__toolBar}>
+                <div className={sg.toolBar}>
                     <div className={sg.title}>Добавить страх</div>
                     <div className={s.saveFearForm}><SaveFearForm saveFear={saveFear}/></div>
                     <div className={s.fears__errorMessage}>{errorMessage}</div>

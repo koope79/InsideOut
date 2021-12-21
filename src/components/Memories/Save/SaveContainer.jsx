@@ -7,6 +7,7 @@ import Save from "./Save";
 const mapToStateToProps = (state) => {
     return {
         galleryMemoryImage: state.memory.galleryMemoryImage,
+        errorMessage: state.memory.errorMessage
     }
 }
 

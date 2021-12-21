@@ -7,7 +7,8 @@ const mapToStateToProps = (state) => {
     return {
         galleryMemoryImage: state.memory.galleryMemoryImage,
         memoriesData: state.memory.memoriesData,
-        currentMemory: state.memory.currentMemory
+        currentMemory: state.memory.currentMemory,
+        errorMessage: state.memory.errorMessage
     }
 }
 

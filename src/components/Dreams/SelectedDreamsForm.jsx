@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form, Field } from 'formik';
 import s from './Dreams.module.css';
 import sg from '../common/GeneralStyles.module.css';
@@ -6,16 +6,17 @@ import classnames from 'classnames';
 
 const SelectedDreamsForm = ({ sizeButton, dreamsData, generationDream }) => {
 
-    const submit = (values, { setSubmitting }) => {
+    const submit = (values, { setSubmitting, resetForm }) => {
         generationDream(values.checked);
         setSubmitting(false);
+        resetForm();
     }
 
     let dreams = dreamsData.map(d => (<SelectedDream type={d.type} key={d.id} id={d.id} />))
 
     return (
         <Formik initialValues={{ checked: [] }} onSubmit={submit}>
-            {({ values, errors, touched, isValid, isSubmitting }) => (
+            {({ values, isSubmitting }) => (
                 <Form>
                     <div className={s.selectedDreamsForm}>
                         {dreams}

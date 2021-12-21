@@ -1,6 +1,6 @@
 import { IslandsApi } from "../api/api";
 
-const _ = '_';
+const SET_ISLANDS_PERS = 'SET_ISLANDS_PERS';
 
 
 let initialState = {
@@ -16,15 +16,23 @@ let initialState = {
 
 const islandsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ISLANDS_PERS:
+            return{
+                ...state,
+                islandsPersonality: action.data
+            }
         default:
             return state;
     }
 }
 
+export const setIslandsPers = (data) => ({type: SET_ISLANDS_PERS, data})
+
 export const getIslandsPersonality = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         try{
-            const data = IslandsApi.getIslands();
+            const data = await IslandsApi.getIslands();
+            if(data && data.length > 0)dispatch(setIslandsPers(data));
         }
         catch{alert('error');}
     }

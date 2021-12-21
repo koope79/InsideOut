@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import ProjectionContainer from './components/ProjectionMemory/ProjectionContainer';
@@ -14,6 +14,9 @@ import Login from './components/Login/Login';
 import RequireAuth from './components/hoc/withRequireAuth';
 import SortContainer from './components/Memories/Sort/SortContainer';
 import IslandsContainer from './components/Islands/IslandsContainer';
+import ReactionContainer from './components/Reaction/ReactionContainer';
+import { Provider } from 'react-redux';
+import store from './redux/redux-store';
 
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
 
           <div className="container">
             <Routes>
-              <Route path="/" element={<Navigate replace to="/login" />} />    {/* ===  <Redirect exact from='/' to='/projection'/> */}
+              <Route path="/" element={<Navigate replace to="/login" />} />
               <Route path='/projection' element={<ProjectionContainer />} />
               <Route path='/memories/search' element={<RequireAuth><SearchContainer /></RequireAuth>} />
               <Route path='/memories/sort' element={<SortContainer />} />
@@ -35,6 +38,7 @@ function App() {
               <Route path='/dreams' element={<DreamsContainer />} />
               <Route path='/fears' element={<FearsContainer />} />
               <Route path='/islands' element={<RequireAuth><IslandsContainer /></RequireAuth>} />
+              <Route path='/reaction' element={<ReactionContainer />} />
               <Route path='/login' element={<Login/>} />
             </Routes>
           </div>
@@ -43,5 +47,14 @@ function App() {
   );
 }
 
-export default App;
+const AppContainer = () => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  );
+}
+export default AppContainer;
 

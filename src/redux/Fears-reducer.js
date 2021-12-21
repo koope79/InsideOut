@@ -4,12 +4,14 @@ const SET_DATA_FEARS = 'SET_DATA_FEARS';
 const SELECT_FEAR_DATA = 'SELECT_FEAR_DATA';
 const RESET_FEARS_DATA = 'RESET_FEARS_DATA';
 const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
+const SET_COUNT_FEARS = 'SET_COUNT_FEARS';
 
 
 let initialState = {
     fearsData: [],
     currentFear: [],
     countFears: null,
+    countReleaseFears: null,
     errorMessage: ''
 };
 
@@ -30,40 +32,48 @@ const fearsReducer = (state = initialState, action) => {
                 ...state,
                 fearsData: [],
                 currentFear: [],
-                countFears: null
+                countFears: null,
+                countReleaseFears: null,
             }
         case SET_ERROR_MESSAGE:
             return {
                 ...state,
                 errorMessage: action.message
             }
+        case SET_COUNT_FEARS:
+            return{
+                ...state,
+                ...action.data
+            }
         default:
-            
             return state;
     }
 }
 
-const setDataFears = (data) => ({ type: SET_DATA_FEARS, data });
+export const setDataFears = (data) => ({ type: SET_DATA_FEARS, data });
 export const selectFearData = (dataFear) => ({type: SELECT_FEAR_DATA, dataFear});
 export const resetFearData = () => ({type: RESET_FEARS_DATA});
 export const setErrorMessage = (message) => ({type:SET_ERROR_MESSAGE, message});
+export const setCountFears = (countFears, countReleaseFears) => ({type: SET_COUNT_FEARS, data: {countFears, countReleaseFears}})
 
 export const getFearsData = (searchFormData) => {
     return async (dispatch) => {
         try {
             const data = await FearsApi.getFearData(searchFormData);
-            dispatch(setDataFears(data));
+            if(data.items.length > 0)dispatch(setDataFears(data.items));
+            else{dispatch(setErrorMessage('Ошибка'));}
         }
         catch {
-            alert('no Memories');
+            dispatch(setErrorMessage('Ошибка'));
         }
     }
 }
 
 export const countFears = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         try{
-            const req = FearsApi.countFears();
+            const req = await FearsApi.countFears();
+            if(req)dispatch(setCountFears(req.countInLongData, req.countReleaseFears));
         }
         catch{
             alert('error');
@@ -76,7 +86,7 @@ export const saveFear = (fearData, urlArr) => {
         try{
             fearData.src = urlArr;
             const req = FearsApi.saveFearData(fearData);
-            dispatch(setErrorMessage('error'));
+            dispatch(setErrorMessage('Ошибка'));
         }
         catch {
             alert('error');

@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return{
                 ...state,
-                emotion: true,
+                emotion: true,  // заглушка
                 ...action.data
             }
         case LOGOUT:
@@ -33,7 +33,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setUserData = (login, pass, isAuth) => ({type: SET_USER_DATA, data: {login, pass, isAuth}});
-export const logOut = () => ({type: LOGOUT});
+export const logOut = () => ({type: LOGOUT});   // заглушка
 
 // export const logIn = (login, pass) => {
 //     return (dispatch) => {

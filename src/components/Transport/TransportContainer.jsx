@@ -1,14 +1,15 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import Transport from "./Transport";
-import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh, transportMemory } from "../../redux/Memory-reducer";
-//import s from './Transport.module.css';
+import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh, setSuccessInfo, transportMemory } from "../../redux/Memory-reducer";
 
 const mapToStateToProps = (state) => {
     return {
         galleryMemoryImage: state.memory.galleryMemoryImage,
         memoriesData: state.memory.memoriesData,
-        currentMemory: state.memory.currentMemory
+        currentMemory: state.memory.currentMemory,
+        errorMessage: state.memory.errorMessage,
+        isSuccessInfo: state.memory.isSuccessInfo
     }
 }
 
@@ -25,4 +26,5 @@ class TransportContainer extends React.Component {
     }
 }
 
-export default connect(mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, selectMemoryData, setDataGallery, transportMemory})(TransportContainer);
+export default connect(mapToStateToProps, {arrow, setDataMemoryTh, resetGallery, 
+    selectMemoryData, setDataGallery, transportMemory, setSuccessInfo})(TransportContainer);

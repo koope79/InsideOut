@@ -5,12 +5,6 @@
 .dreams__search{
     padding: 20px;
 }
-.dreams__tools{
-    display: flex;
-    flex-direction: column;
-    border-left: 3px #dddbdb solid;
-    padding: 20px;
-}
 .dreams__selectedMemory{
     
 }
@@ -26,7 +20,7 @@
 }
 
 .selectedDreamsForm__item{
-    margin: 7px 0;
+    margin: 10px 0;
     padding-left: 5px;
 }
 .selectedDreamsForm__item span {

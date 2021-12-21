@@ -10,14 +10,6 @@
     display: flex;
     justify-content: space-between;
 } */
-.fears__toolBar{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    border-left: 3px #dddbdb solid;
-    flex-direction: column;
-}
 .fears__errorMessage{
     margin-top: 5px;
     color:red;

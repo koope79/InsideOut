@@ -7,6 +7,7 @@ import authReducer from "./Auth-reducer";
 import dreamsReducer from "./Dreams-reducer";
 import fearsReducer from "./Fears-reducer";
 import islandsReducer from "./Islands-reducer";
+import reactionReducer from "./Reaction-reducer";
 
 
 let reducersStuff = combineReducers({
@@ -15,7 +16,8 @@ let reducersStuff = combineReducers({
     dreams: dreamsReducer,
     auth: authReducer,
     fears: fearsReducer,
-    islands: islandsReducer
+    islands: islandsReducer,
+    reaction: reactionReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
