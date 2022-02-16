@@ -6,7 +6,8 @@ import Islands from "./Islands";
 const mapToStateToProps = (state) => {
     return {
         islandsPersonality: state.islands.islandsPersonality,
-        listTypes: state.islands.listTypes
+        listTypes: state.islands.listTypes,
+        errorMessage: state.memory.errorMessage
     }
 }
 

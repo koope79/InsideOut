@@ -8,7 +8,7 @@ import ResultSearch from "../common/ResultSearch";
 import SelectedDreamsForm from "./SelectedDreamsForm";
 
 const Dreams = ({ resetGallery, setDataMemoryTh, memoriesData, galleryMemoryImage,
-    arrow, currentMemory, selectMemoryData, setDataGallery, dreamsData, addDreamsData, generationDream, dreamsProjectionData, thDreams }) => {
+    arrow, currentMemory, selectMemoryData, setDataGallery, dreamsData, addDreamsData, setGenerationDreamData, dreamsProjectionData, thDreams }) => {
 
     return (
         <div className={s.dreams}>
@@ -29,7 +29,7 @@ const Dreams = ({ resetGallery, setDataMemoryTh, memoriesData, galleryMemoryImag
                 <div className={sg.toolBar}>
                     <div className={sg.title}>Выбранные воспоминания</div>
                     <div className={s.dreams__selectedMemory}>
-                        <SelectedDreamsForm dreamsData={dreamsData} generationDream={generationDream}/>
+                        <SelectedDreamsForm dreamsData={dreamsData} setGenerationDreamData={setGenerationDreamData}/>
                     </div>
                     <div className={s.dreams__scenario}>
                     </div>

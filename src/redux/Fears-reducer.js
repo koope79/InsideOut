@@ -59,8 +59,9 @@ export const setCountFears = (countFears, countReleaseFears) => ({type: SET_COUN
 export const getFearsData = (searchFormData) => {
     return async (dispatch) => {
         try {
+            
             const data = await FearsApi.getFearData(searchFormData);
-            if(data.items.length > 0)dispatch(setDataFears(data.items));
+            if(data.length > 0)dispatch(setDataFears(data));
             else{dispatch(setErrorMessage('Ошибка'));}
         }
         catch {

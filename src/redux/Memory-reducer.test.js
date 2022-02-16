@@ -16,7 +16,7 @@ test("memoriesData should be inserted", ()=> {
         }
     ];
 
-    let action = setDataMemory(actionInput);
+    const action = setDataMemory(actionInput);
 
     let state = {
         memoriesData: [],

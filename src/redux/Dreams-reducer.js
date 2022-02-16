@@ -31,16 +31,16 @@ const dreamsReducer = (state = initialState, action) => {
 }
 
 export const addDreamsData = (dataMemory) => ({type: SET_DREAM_DATA, dataMemory});
-const resetDataDreams = () => ({type: RESET_DATA_DREAMS});
+export const resetDataDreams = () => ({type: RESET_DATA_DREAMS});
 
-export const generationDream = (formData) => {
-    return (dispatch) => {
+export const setGenerationDreamData = (formData) => {
+    return async (dispatch) => {
         const arr = formData.map(d => Number(d));
-        const req = DreamsApi.generationDream(arr);
-        // диспатч массива от req в projection-reducer (dreamsProjection)
+        const req = await DreamsApi.generationDream(arr);
+        // диспатч массива от req в projection-reducer (dreamsProjection)   сделать тест
         dispatch(resetDataDreams());
     }
-}
+};
 
 export default dreamsReducer;
 

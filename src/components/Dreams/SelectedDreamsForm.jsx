@@ -4,10 +4,10 @@ import s from './Dreams.module.css';
 import sg from '../common/GeneralStyles.module.css';
 import classnames from 'classnames';
 
-const SelectedDreamsForm = ({ sizeButton, dreamsData, generationDream }) => {
+const SelectedDreamsForm = ({ sizeButton, dreamsData, setGenerationDreamData }) => {
 
     const submit = (values, { setSubmitting, resetForm }) => {
-        generationDream(values.checked);
+        setGenerationDreamData(values.checked);
         setSubmitting(false);
         resetForm();
     }

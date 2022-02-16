@@ -76,7 +76,7 @@ const SaveForm = ({ arrow, galleryMemoryImage, setDataGallery, saveMemoryTh, err
                     <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage} />
 
                     <div className={sg.general__button}>
-                        <button type="submit" disabled={(isValid && isValidSrc) ? isSubmitting : "disabled"}>Сохранить</button>
+                        <button name="saveButton" type="submit" disabled={(isValid && isValidSrc) ? isSubmitting : "disabled"}>Сохранить</button>
                     </div>
 
                 </Form>

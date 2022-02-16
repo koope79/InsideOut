@@ -5,14 +5,14 @@ import sg from '../common/GeneralStyles.module.css';
 import { maxLength, requiredField } from "../../validators/validators";
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { setUserData } from "../../redux/Auth-reducer";
+import { logIn, setUserData } from "../../redux/Auth-reducer";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const maxLength8 = maxLength(8);
 
-const LoginForm = ({setUserData}) => {
+const LoginForm = ({setUserData, logIn}) => {
     const submit = (values, { setSubmitting }) => {
-        setUserData(values.login, values.pass, true);
+        logIn(values.login, values.pass);
         setSubmitting(false);
     }
 
@@ -35,7 +35,7 @@ const LoginForm = ({setUserData}) => {
                         </div>
                     </div>
                     <div className={classnames(sg.form__button, s.form_block) }>
-                        <button type="submit" disabled={isValid ? isSubmitting : "disabled"}>Вход</button>
+                        <button name="loginButton" type="submit" disabled={isValid ? isSubmitting : "disabled"}>Вход</button>
                     </div>
 
                 </Form>
@@ -57,7 +57,7 @@ const Login = (props) => {
         <div className={s.login}>
             <div className={sg.title}>Аутентификация</div>
             <div className={s.loginForm}>
-                <LoginForm setUserData={props.setUserData}/>
+                <LoginForm setUserData={props.setUserData} logIn={props.logIn}/>
             </div>
         </div>
     );
@@ -70,4 +70,4 @@ const mapToStateToProps = (state) => {
 }
 
 
-export default connect(mapToStateToProps, { setUserData })(Login);;
+export default connect(mapToStateToProps, { setUserData, logIn })(Login);;

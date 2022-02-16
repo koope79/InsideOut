@@ -28,7 +28,7 @@
     width: 27px;
     height: 27px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgb(255, 233, 25) 0%, rgb(251, 192, 0) 100%);
+    /* background: linear-gradient(135deg, rgb(255, 233, 25) 0%, rgb(251, 192, 0) 100%); */
     box-shadow: rgba(211, 165, 110, 0.498039) 0px 0px 5px 1px, rgb(245, 245, 245) 0px 0px 10px 1px;
     animation-name: emotion;
     animation-duration: 2.1s;
@@ -36,6 +36,21 @@
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
     
+}
+.happy_emotion{
+  background: linear-gradient(135deg, rgb(255, 233, 25) 0%, rgb(251, 192, 0) 100%);
+}
+.sadness_emotion {
+  background: linear-gradient(135deg, rgb(160, 219, 245) 0%, rgb(58, 110, 156) 100%);
+}
+.rage_emotion {
+  background: linear-gradient(135deg, rgb(255, 80, 70) 0%, rgb(187, 54, 45) 100%);
+}
+.fear_emotion {
+  background: linear-gradient(135deg, rgb(231, 185, 235) 0%, rgb(170, 131, 174) 100%);
+}
+.disgust_emotion {
+  background: linear-gradient(135deg, rgb(212, 220, 142) 0%, rgb(130, 173, 94) 100%);
 }
 /* background: linear-gradient(135deg, rgb(255, 233, 25) 0%, rgb(251, 192, 0) 100%); РАДОСТЬ */
 /* background: linear-gradient(135deg, rgb(160, 219, 245) 0%, rgb(58, 110, 156) 100%); ПЕЧАЛЬ */

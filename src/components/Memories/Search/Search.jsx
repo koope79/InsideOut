@@ -26,7 +26,7 @@ const Search = ({ setDataMemoryTh, memoriesData, galleryMemoryImage, arrow, curr
                 <Gallery arrow={arrow} galleryMemoryImage={galleryMemoryImage} />
 
                 <div className={sg.general__button}>
-                    <button onClick={() => { infoSet(true); }} disabled={currentMemory.length == 0 ? "disabled" : ""}>Информация</button>
+                    <button name="infoButton" onClick={() => { infoSet(true); }} disabled={currentMemory.length == 0 ? "disabled" : ""}>Информация</button>
                 </div>
                 {info && <InfoBlock infoSet={infoSet} desc={currentMemory.description} memoryLocation={currentMemory.memoryLocation} rating={currentMemory.rating} />}
             </div>

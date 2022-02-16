@@ -29,12 +29,12 @@ const Transport = ({ transportMemory, resetGallery, setDataMemoryTh,
                     <div className={sg.subTitle}>Место доставки</div>
                     <select value={selectedOption} name="MemorySelect" onChange={e => setSelectedOption(e.target.value)}>
                         <option value={"DEFAULT"} disabled>---</option>
-                        <option value="долговременная память" disabled={currentMemory.memoryLocation == "долговременная память"  ? true : false}>долговременная память</option>
-                        <option value="кратковременная память" disabled={currentMemory.memoryLocation == "кратковременная память" ? true : false}>кратковременная память</option>
+                        <option value="LongMemory" disabled={currentMemory.memoryLocation == "LongMemory"  ? true : false}>долговременная память</option>
+                        <option value="ShortMemory" disabled={currentMemory.memoryLocation == "ShortMemory" ? true : false}>кратковременная память</option>
                     </select>
                 </div>
                 <div className={sg.general__button}>
-                    <button onClick={() => {transportMemory(currentMemory, selectedOption); resetGallery(); setSelectedOption("DEFAULT"); }} disabled={(currentMemory.length == 0 || selectedOption == "DEFAULT") ? "disabled" : (currentMemory.memoryLocation == selectedOption) ? "disabled" : ""}>Отправить</button>
+                    <button name="transportButton" onClick={() => {transportMemory(currentMemory, selectedOption); resetGallery(); setSelectedOption("DEFAULT"); }} disabled={(currentMemory.length == 0 || selectedOption == "DEFAULT") ? "disabled" : (currentMemory.memoryLocation == selectedOption) ? "disabled" : ""}>Отправить</button>
                 </div>
                 {isSuccessInfo &&
                 <SuccessBlock setSuccessInfo={setSuccessInfo}/>}

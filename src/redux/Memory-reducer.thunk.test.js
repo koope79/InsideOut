@@ -26,7 +26,7 @@ test("received data should be set in state for Search", async () => {
     expect(dispatchMock).toBeCalledTimes(1);
     expect(dispatchMock).toHaveBeenNthCalledWith(1, setDataMemory(resultAPI));
 });
-/////////
+///////// test saveMemory
 test("memories should be successfully loaded ", () => {
     const resultAPI = {
         resultCode: 0,

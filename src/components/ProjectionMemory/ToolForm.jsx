@@ -31,7 +31,7 @@ const ToolForm = ({setDataMemoryTh, sizeButton}) => {
                         </div>
                     </div>
                     <div className={classnames( {[sg.middleFormButton]: sizeButton == "middle"}, {[sg.form__button]: !sizeButton}  )} >
-                        <button type="submit" disabled={isValid ? isSubmitting : "disabled"}>Поиск</button>
+                        <button name="searchButton" type="submit" disabled={isValid ? isSubmitting : "disabled"}>Поиск</button>
                     </div>
                 </Form>
             )}
