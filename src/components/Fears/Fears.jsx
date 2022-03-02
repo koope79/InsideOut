@@ -9,7 +9,7 @@ import ResultSearchFears from "./ResultSearchFears";
 
 
 const Fears = ({ errorMessage, fearsData, saveFear, galleryMemoryImage, currentFear, arrow, 
-    resetGallery, resetFearData, selectFearData, setDataGallery, getFearsData }) => {
+    resetGallery, resetFearData, selectFearData, setDataGallery, getFearsData, countReleaseFears, countFearsTh, countFears, walkingFear }) => {
     // добавить запрос на добавление страха для <SaveFearForm />
     return (
         <div className={s.fears}>
@@ -22,7 +22,7 @@ const Fears = ({ errorMessage, fearsData, saveFear, galleryMemoryImage, currentF
                     <ResultSearchFears fearsData={fearsData} selectFearData={selectFearData} setDataGallery={setDataGallery} />
                     <Gallery size={"middle"} arrow={arrow} galleryMemoryImage={galleryMemoryImage} />
                     <div className={sg.general__button}>
-                        <button onClick={() => { alert('walk'); resetGallery(); resetFearData(); }} disabled={currentFear.length == 0 ? "disabled" : ""}>Выпустить</button>
+                        <button onClick={() => { walkingFear(currentFear); resetGallery(); resetFearData(); countFearsTh(); }} disabled={currentFear.length == 0 ? "disabled" : ""}>Выпустить</button>
                     </div>
                 </div>
                 <div className={sg.toolBar}>
@@ -31,15 +31,15 @@ const Fears = ({ errorMessage, fearsData, saveFear, galleryMemoryImage, currentF
                     <div className={s.fears__errorMessage}>{errorMessage}</div>
                     <div className={s.fears__countBar}>
                         <div className={s.countBar__item}>
-                            <div>В долговременной памяти:</div>
-                            <div>3</div>
+                            <div>Всего страхов:</div>
+                            <div>{countFears}</div>
                         </div>
                         <div className={s.countBar__item}>
                             <div>Выпущенные страхи:</div>
-                            <div>123</div>
+                            <div>{countReleaseFears}</div>
                         </div>
                         <div className={s.refreashButtonBar}>
-                            <button onClick={() => { alert('refresh count'); }}>
+                            <button onClick={() => { countFearsTh(); }}>
                             </button>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 const SET_PROJECTION_MEMORY = 'SET_PROJECTION_MEMORY';
 const DREAMS_PROJECTION = 'DREAMS_PROJECTION';
+const SET_DREAM_DATA = 'SET_DREAM_DATA';
 
 
 let initialState = {
@@ -14,6 +15,11 @@ const projectionReducer = (state = initialState, action) => {
                 ...state,
                 projectionMemoryImage: action.galleryImage
             }
+        case SET_DREAM_DATA:
+            return {
+                ...state,
+                dreamsProjectionData: action.dreamsData
+            }
         default:
             return state;
     }
@@ -21,6 +27,7 @@ const projectionReducer = (state = initialState, action) => {
 
 
 export const setProjectionMemory = (galleryImage) => ({ type: SET_PROJECTION_MEMORY, galleryImage });
+export const setDreamsProjectionData = (dreamsData) => ({type: SET_DREAM_DATA, dreamsData});
 
 export const thDreams = (dreamsData) => {
     return (dispatch) => {

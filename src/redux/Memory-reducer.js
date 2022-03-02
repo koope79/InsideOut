@@ -144,8 +144,8 @@ export const selectionMemoriesSort = (sortFormData) => {
 export const transportMemory = (memory, location) => {
     return async (dispatch) => {
         try {
-            const obj = { id: memory.id, location }
-            const req = await ProjectionAPI.transportMemoryData(obj);
+            //const obj = { id: memory.id, location }
+            const req = await ProjectionAPI.transportMemoryData(memory);
             if (req.resultCode == 0) dispatch(setSuccessInfo(true));
             else{dispatch(errorAPI(true));}
         }

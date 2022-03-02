@@ -15,7 +15,7 @@ const Projection = ( { memoriesData, selectMemoryData, setDataGallery, projectio
     return (
         <div className={s.projection}>
             <div className={s.currentProjection}>
-                <div className={sg.title}>Сейчас проекцируется</div>
+                <div className={sg.title}>Сейчас проецируется</div>
 
                 <div className={s.currentProjection__image}>
                     <img src={projectionMemoryImage == null ? imageDefault : projectionMemoryImage} alt={'memory'} />

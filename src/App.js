@@ -29,16 +29,16 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<Navigate replace to="/login" />} />
-              <Route path='/projection' element={<ProjectionContainer />} />
+              <Route path='/projection' element={<RequireAuth><ProjectionContainer /></RequireAuth>} />
               <Route path='/memories/search' element={<RequireAuth><SearchContainer /></RequireAuth>} />
               <Route path='/memories/sort' element={<SortContainer />} />
               <Route path='/memories/save' element={<RequireAuth><SaveContainer /></RequireAuth>} />
               <Route path='/memories' element={<RequireAuth><MemoriesContainer /></RequireAuth>} />
               <Route path='/transport' element={<RequireAuth><TransportContainer /></RequireAuth>} />
-              <Route path='/dreams' element={<DreamsContainer />} />
-              <Route path='/fears' element={<FearsContainer />} />
+              <Route path='/dreams' element={<RequireAuth><DreamsContainer /></RequireAuth>} />
+              <Route path='/fears' element={<RequireAuth><FearsContainer /></RequireAuth>} />
               <Route path='/islands' element={<RequireAuth><IslandsContainer /></RequireAuth>} />
-              <Route path='/reaction' element={<ReactionContainer />} />
+              {/* <Route path='/reaction' element={<RequireAuth><ReactionContainer /></RequireAuth>} /> */}
               <Route path='/login' element={<Login/>} />
             </Routes>
           </div>

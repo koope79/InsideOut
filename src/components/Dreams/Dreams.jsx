@@ -7,7 +7,7 @@ import Gallery from "../common/Gallery";
 import ResultSearch from "../common/ResultSearch";
 import SelectedDreamsForm from "./SelectedDreamsForm";
 
-const Dreams = ({ resetGallery, setDataMemoryTh, memoriesData, galleryMemoryImage,
+const Dreams = ({ setDataMemoryTh, memoriesData, galleryMemoryImage,
     arrow, currentMemory, selectMemoryData, setDataGallery, dreamsData, addDreamsData, setGenerationDreamData, dreamsProjectionData, thDreams }) => {
 
     return (

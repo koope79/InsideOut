@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { getFearsData, resetFearData, saveFear, selectFearData } from "../../redux/Fears-reducer";
+import { countFearsTh, getFearsData, resetFearData, saveFear, selectFearData, walkingFear } from "../../redux/Fears-reducer";
 import { arrow, resetGallery, setDataGallery } from "../../redux/Memory-reducer";
 import Fears from "./Fears";
 
@@ -9,11 +9,16 @@ const mapToStateToProps = (state) => {
         galleryMemoryImage: state.memory.galleryMemoryImage,
         fearsData: state.fears.fearsData,
         currentFear: state.fears.currentFear,
-        errorMessage: state.fears.errorMessage
+        errorMessage: state.fears.errorMessage,
+        countFears: state.fears.countFears,
+        countReleaseFears: state.fears.countReleaseFears
     }
 }
 
 class FearsContainer extends React.Component {
+    componentDidMount(){
+        this.props.countFearsTh();
+    }
     componentWillUnmount(){
         this.props.resetGallery();
         this.props.resetFearData();
@@ -27,4 +32,5 @@ class FearsContainer extends React.Component {
     }
 }
 
-export default connect(mapToStateToProps, {arrow, getFearsData, selectFearData, resetFearData, resetGallery, setDataGallery, saveFear})(FearsContainer);
+export default connect(mapToStateToProps, {arrow, getFearsData, selectFearData, resetFearData, 
+    resetGallery, setDataGallery, saveFear, countFearsTh, walkingFear})(FearsContainer);

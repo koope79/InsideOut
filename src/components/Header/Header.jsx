@@ -6,7 +6,6 @@ import { CaseEmotion } from "../hoc/withEmotion";
 import s from './Header.module.css';
 
 const Header = ({isAuth, login, logOut, emotion}) => {
-    console.log(emotion);
     return (
         <header className={s.header}>
             <div className={s.login}>

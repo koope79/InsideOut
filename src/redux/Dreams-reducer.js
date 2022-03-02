@@ -1,4 +1,5 @@
 import { DreamsApi } from "../api/api";
+import { setDreamsProjectionData } from "./Projection-reducer";
 
 const SET_DREAM_DATA = 'SET_FEAR_DATA';
 const RESET_DATA_DREAMS = 'RESET_DATA_DREAMS';
@@ -35,10 +36,13 @@ export const resetDataDreams = () => ({type: RESET_DATA_DREAMS});
 
 export const setGenerationDreamData = (formData) => {
     return async (dispatch) => {
+        console.log(formData);
         const arr = formData.map(d => Number(d));
         const req = await DreamsApi.generationDream(arr);
-        // диспатч массива от req в projection-reducer (dreamsProjection)   сделать тест
-        dispatch(resetDataDreams());
+        if(req.resultCode == 0) {
+            dispatch(setDreamsProjectionData(req.dreamsMas));
+            dispatch(resetDataDreams());
+        }
     }
 };
 

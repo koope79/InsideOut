@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { arrow, selectMemoryData, setDataGallery, setDataMemoryTh } from "../../redux/Memory-reducer";
+import { arrow, resetGallery, selectMemoryData, setDataGallery, setDataMemoryTh } from "../../redux/Memory-reducer";
 import Reaction from "./Reaction";
 
 const mapToStateToProps = (state) => {
@@ -14,6 +14,9 @@ const mapToStateToProps = (state) => {
 }
 
 class ReactionContainer extends React.Component {
+    componentWillUnmount(){
+        this.props.resetGallery();
+    }
     render(){
         return (
             <Fragment>
@@ -23,4 +26,4 @@ class ReactionContainer extends React.Component {
     }
 }
 
-export default connect(mapToStateToProps, { setDataMemoryTh, arrow, selectMemoryData, setDataGallery })(ReactionContainer);
+export default connect(mapToStateToProps, { resetGallery, setDataMemoryTh, arrow, selectMemoryData, setDataGallery })(ReactionContainer);
