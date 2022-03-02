@@ -11,7 +11,8 @@ const mapToStateToProps = (state) => {
         memoriesData: state.memory.memoriesData,
         currentMemory: state.memory.currentMemory,
         dreamsData: state.dreams.dreamsData,
-        dreamsProjectionData: state.projectionPage.dreamsProjectionData
+        dreamsProjectionData: state.projectionPage.dreamsProjectionData,
+        message: state.dreams.message
     }
 }
 

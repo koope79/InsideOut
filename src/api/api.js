@@ -185,6 +185,9 @@ export const AuthApi = {
 export const IslandsApi = {
     getIslands() {
         console.log("getIslands Data");
+
+
+        
         return {
             resultCode: 0,
             message:[""],
@@ -193,6 +196,21 @@ export const IslandsApi = {
     },
     getListTypes(){
         console.log("getListTypes");
+        let mass = [];
+        for(let k=0;k<LongData.length;k++){
+            mass.push(LongData[k].type);
+        }
+        var arr = [1, 3, 4, 1, 1, 3, 4, 5];
+        var result = {};
+        mass.forEach(function(a){
+            if (result[a] != undefined)
+                ++result[a];
+            else
+                result[a] = 1;
+        });
+        console.log(result);
+        
+        
         return {
             resultCode: 0,
             message:[""],
